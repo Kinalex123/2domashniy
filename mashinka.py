@@ -30,12 +30,10 @@ class Car(pygame.sprite.Sprite):
     image_left = pygame.transform.flip(image_right, True, False)
 
     def __init__(self):
-        # НЕОБХОДИМО вызвать конструктор родительского класса Sprite
         super().__init__(all_sprites)
         self.image = Car.image_right
         self.rect = self.image.get_rect()
         self.vx = 1
-        # считаем количество тиков для замедления
         self.ticks = 0
 
     def update(self):
@@ -49,7 +47,6 @@ class Car(pygame.sprite.Sprite):
         self.ticks = 0
 
 
-# группа, содержащая все спрайты
 all_sprites = pygame.sprite.Group()
 
 car = Car()
@@ -63,5 +60,5 @@ while running:
     all_sprites.draw(screen)
     all_sprites.update()
     pygame.display.flip()
-    clock.tick(50)
+    clock.tick(10)
 pygame.quit()
